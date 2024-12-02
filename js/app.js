@@ -62,9 +62,9 @@ window.addEventListener("scroll", () => {
 
 // Scroll to anchor ID using scrollIntoView() event
 
-navbar.addEventListener("click", (evt) => {
-  const target = evt.target;
-  evt.preventDefault();
+/*navbar.addEventListener("click", (event) => {
+  const target = event.target;
+  event.preventDefault();
   if (target.dataset.nav) {
     document
       .getElementById(`${target.dataset.nav}`)
@@ -73,7 +73,18 @@ navbar.addEventListener("click", (evt) => {
       location.hash = `${target.dataset.nav}`;
     }, 300);
   }
+});*/
+// Scroll to anchor ID using scrollIntoView() event
+navbar.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target.dataset.nav) {
+    event.preventDefault();
+    const sectionId = target.dataset.nav;
+    document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+  
+  }
 });
+
 
 //Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
 
